@@ -25,4 +25,4 @@ node scripts/validate-scaffold.mjs
 
 **CASE-FORGE-00** — ver [docs/ROADMAP.md](docs/ROADMAP.md).
 
-Próximo: Europe PMC connector (CASE-FORGE-01).
+Próximo: CASE-FORGE-02 — extracción estructurada (HTML/PDF → `ExtractedCase`).

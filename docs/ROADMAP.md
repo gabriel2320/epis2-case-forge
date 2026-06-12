@@ -2,9 +2,9 @@
 
 | Fase              | Nombre                               | Estado       |
 | ----------------- | ------------------------------------ | ------------ |
-| **CASE-FORGE-00** | Fundación y gobernanza               | **En curso** |
-| CASE-FORGE-01     | Registro de fuentes y descubrimiento | Pendiente    |
-| CASE-FORGE-02     | Ingesta y extracción estructurada    | Pendiente    |
+| **CASE-FORGE-00** | Fundación y gobernanza               | Completada   |
+| **CASE-FORGE-01** | Registro de fuentes y descubrimiento | Completada   |
+| **CASE-FORGE-02** | Ingesta y extracción estructurada    | **En curso** |
 | CASE-FORGE-03     | Traducción al español                | Pendiente    |
 | CASE-FORGE-04     | Sintetización de pacientes           | Pendiente    |
 | CASE-FORGE-05     | Mapeo clínico EPIS2                  | Pendiente    |
@@ -14,22 +14,17 @@
 | CASE-FORGE-09     | Automatización y escala              | Pendiente    |
 | CASE-FORGE-10     | Laboratorios avanzados               | Opcional     |
 
-## CASE-FORGE-00 — Entregables
+## CASE-FORGE-01 — Entregables
 
-- [x] Repositorio `epis2-case-forge`
-- [x] `docs/PRODUCT_CANON.md`
-- [x] `docs/SOURCE_POLICY.md`
-- [x] `docs/EPIS2_EXPORT_CONTRACT.md`
-- [x] `@case-forge/contracts` (schemas Zod + demo codes)
-- [x] `config/source_registry.yaml` (whitelist inicial)
-- [x] CI mínimo (`npm run check`)
-- [ ] Repo remoto GitHub + enlace desde EPIS2 README
+- [x] Paquete `@case-forge/harvester` — cliente Europe PMC
+- [x] `npm run harvest:europe-pmc` — indexación OA con trazabilidad
+- [x] Catálogo JSON `data/catalog/europe_pmc_oa.json`
+- [x] ≥ 50 documentos con licencia verificada (80 indexados en harvest inicial)
 
-## Próximo paso (CASE-FORGE-01)
+## Próximo paso (CASE-FORGE-02)
 
-1. Conector Europe PMC (búsqueda `case report` + filtro OA).
-2. Indexar ≥ 50 documentos con licencia verificada.
-3. Log de procedencia por documento.
+1. Parser HTML/PDF para extraer secciones clínicas estructuradas.
+2. Schema `ExtractedCase` poblado desde catálogo.
 
 ## Repos relacionados
 

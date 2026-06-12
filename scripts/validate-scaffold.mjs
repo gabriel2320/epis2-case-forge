@@ -15,6 +15,8 @@ const requiredFiles = [
   'config/source_registry.yaml',
   'packages/contracts/src/schemas.ts',
   'packages/contracts/src/demo-codes.ts',
+  'packages/harvester/src/europe-pmc-client.ts',
+  'scripts/harvest-europe-pmc.mjs',
 ];
 
 const errors = [];

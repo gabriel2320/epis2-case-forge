@@ -18,4 +18,11 @@ export {
   type SyntheticPatient,
 } from './schemas.js';
 
+export {
+  indexedSourceDocumentSchema,
+  sourceCatalogSchema,
+  type IndexedSourceDocument,
+  type SourceCatalog,
+} from './catalog.js';
+
 export { isReservedDemoCode, nextDemoCaseCode } from './demo-codes.js';

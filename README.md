@@ -36,6 +36,8 @@ npm install
 npm run check    # format + typecheck + test + validate scaffold
 npm run build
 npm test
+npm run harvest:europe-pmc   # CASE-FORGE-01 — indexar casos OA (Europe PMC)
+npm run catalog:stats        # resumen del catálogo local
 ```
 
 Requiere Node 20+ (`.nvmrc`).
