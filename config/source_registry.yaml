@@ -1,0 +1,70 @@
+# Registro de fuentes — whitelist inicial (CASE-FORGE-00)
+
+version: '0.1.0'
+updated: '2026-06-12'
+
+defaults:
+  rate_limit_per_minute: 30
+  user_agent: 'epis2-case-forge/0.1 (+https://github.com/gabriel2320/epis2-case-forge)'
+  require_license_verified: true
+
+specialty_quotas_mvp:
+  internal_medicine: 0.30
+  pediatrics: 0.30
+  critical_care: 0.30
+
+sources:
+  - id: europe_pmc_oa
+    name: Europe PMC Open Access
+    type: api
+    base_url: https://www.ebi.ac.uk/europepmc/webservices/rest
+    license: europepmc-oa
+    enabled: true
+    search_templates:
+      - query: '(CASE REPORT) AND (OPEN_ACCESS:Y)'
+        specialties: [internal_medicine, pediatrics, critical_care]
+      - query: '(intensive care OR critical care) AND (case report) AND (OPEN_ACCESS:Y)'
+        specialties: [critical_care]
+      - query: '(pediatric OR paediatric) AND (case report) AND (OPEN_ACCESS:Y)'
+        specialties: [pediatrics]
+
+  - id: pmc_oa
+    name: PubMed Central Open Access
+    type: oai
+    base_url: https://www.ncbi.nlm.nih.gov/pmc/oai/oai.cgi
+    license: pmc-oa
+    enabled: true
+    notes: Preferir metadatos OAI; full text solo vía PMC-OA list.
+
+  - id: doaj
+    name: DOAJ
+    type: api
+    base_url: https://doaj.org/api/v4
+    license: publisher-oa
+    enabled: true
+    search_templates:
+      - query: case report
+        specialties: [internal_medicine, pediatrics, critical_care]
+
+  - id: j_med_case_reports
+    name: Journal of Medical Case Reports
+    type: web
+    base_url: https://jmedicalcasereports.biomedcentral.com
+    license: cc-by
+    enabled: true
+    specialties: [internal_medicine, pediatrics, critical_care, emergency]
+
+  - id: cureus
+    name: Cureus
+    type: web
+    base_url: https://www.cureus.com
+    license: cc-by
+    enabled: true
+    rate_limit_per_minute: 10
+    specialties: [internal_medicine, pediatrics, critical_care]
+
+blocked:
+  - id: scihub
+    reason: Violación de copyright y términos — ver docs/SOURCE_POLICY.md
+  - id: libgen
+    reason: Contenido con licencia no verificable

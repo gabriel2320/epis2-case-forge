@@ -1,0 +1,32 @@
+{
+  "name": "epis2-case-forge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Generador de pacientes sintéticos para EPIS2 — casos clínicos OA → demo L0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @case-forge/contracts",
+    "typecheck": "npm run build -w @case-forge/contracts && npm run typecheck -w @case-forge/contracts",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run format:check && npm run typecheck && npm run test && node scripts/validate-scaffold.mjs",
+    "validate:scaffold": "node scripts/validate-scaffold.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^22.19.1",
+    "eslint": "^9.39.1",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.0",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
